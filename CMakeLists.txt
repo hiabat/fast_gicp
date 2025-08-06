@@ -191,4 +191,25 @@ elseif (ament_cmake_FOUND)
       DIRECTORY "include/"
       DESTINATION include
     )
+else()
+  #################################
+  ## General install configuration ##
+  #################################
+  include(GNUInstallDirs)
+  
+  install(TARGETS ${PROJECT_NAME}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+  install(DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING PATTERN "*.hpp")
+
+  if(BUILD_VGICP_CUDA)
+    install(TARGETS fast_vgicp_cuda
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+  endif()
 endif()
