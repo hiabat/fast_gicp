@@ -38,23 +38,14 @@ cmake .. "-DCMAKE_PREFIX_PATH=$(brew --prefix libomp)[;other-custom-prefixes]" -
 
 To enable the CUDA-powered implementations, set ```BUILD_VGICP_CUDA``` cmake option to ```ON```.
 
-### ROS
-```bash
-cd ~/catkin_ws/src
-git clone https://github.com/SMRT-AIST/fast_gicp --recursive
-cd .. && catkin_make -DCMAKE_BUILD_TYPE=Release
-# enable cuda-based implementations
-# cd .. && catkin_make -DCMAKE_BUILD_TYPE=Release -DBUILD_VGICP_CUDA=ON
-```
-
 ### Non-ROS
 ```bash
 git clone https://github.com/SMRT-AIST/fast_gicp --recursive
 mkdir fast_gicp/build && cd fast_gicp/build
-cmake .. -DCMAKE_BUILD_TYPE=Release
 # enable cuda-based implementations
-# cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_VGICP_CUDA=ON
-make -j8
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_VGICP_CUDA=ON
+make -j12
+sudo make install
 ```
 
 ### Python bindings
