@@ -40,7 +40,7 @@ To enable the CUDA-powered implementations, set ```BUILD_VGICP_CUDA``` cmake opt
 
 ### Non-ROS
 ```bash
-git clone https://github.com/SMRT-AIST/fast_gicp --recursive
+git clone https://github.com/hiabat/fast_gicp --recursive
 mkdir fast_gicp/build && cd fast_gicp/build
 # enable cuda-based implementations
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_VGICP_CUDA=ON
