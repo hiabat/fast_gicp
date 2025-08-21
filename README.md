@@ -46,6 +46,7 @@ mkdir fast_gicp/build && cd fast_gicp/build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_VGICP_CUDA=ON
 make -j12
 sudo make install
+echo 'export LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"' >> ~/.bashrc
 ```
 
 ### Python bindings
